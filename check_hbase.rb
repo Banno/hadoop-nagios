@@ -76,7 +76,7 @@ if options[:verbose]
   puts "Ratio of live to dead: " + ratio.to_s
 end
 
-if (ratio > options[:critical_float])
+if (ratio > options[:critical_float] || parsed_results[:status].contains("INCONSISTENT"))
   puts "Critical number of servers dead: " + parsed_results[:dead_servers]
   exit 2
 elsif (ratio > options[:warning_float])
