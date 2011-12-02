@@ -1,5 +1,6 @@
-# Hadoop / HBase monitoring scripts for nagios
+Hadoop / HBase monitoring scripts for nagios
 
 This project is very very young. Don't expect things to work 100% quite yet. Use at your own risk, etc etc.
 
+TODO: Figure out what `hbase hbck` does when your master is down so it can't connect
 
