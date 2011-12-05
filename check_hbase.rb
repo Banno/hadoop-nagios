@@ -6,7 +6,7 @@ options = {}
 
 optparse = OptionParser.new do |opts|
 
-  opts.banner = "Usage: ./hbase_check.rb -w <dead server % warning> -c <dead server % critical>"
+  opts.banner = "Usage: #{$PROGRAM_NAME} -w <dead server % warning> -c <dead server % critical>"
 
   options[:verbose] = false
   opts.on( '-v', '--verbose', 'Output more information') do
@@ -71,16 +71,16 @@ ratio = (parsed_results[:dead_servers][0].to_f / (parsed_results[:live_servers][
 
 if options[:verbose]
   puts parsed_results[:version]
-  puts "Number of live region servers: " + parsed_results[:live_servers].to_s
-  puts "Number of dead region servers: " + parsed_results[:dead_servers].to_s
-  puts "Ratio of live to dead: " + ratio.to_s
+  puts "Number of live region servers: #{parsed_results[:live_servers].to_s}"
+  puts "Number of dead region servers: #{parsed_results[:dead_servers].to_s}"
+  puts "Ratio of live to dead: #{ratio.to_s}"
 end
 
 if (ratio > options[:critical_float] || parsed_results[:status].contains("INCONSISTENT"))
-  puts "Critical number of servers dead: " + parsed_results[:dead_servers]
+  puts "Critical number of servers dead: #{parsed_results[:dead_servers]}"
   exit 2
 elsif (ratio > options[:warning_float])
-  puts "Warning number of servers dead" + parsed_results[:dead_servers]
+  puts "Warning number of servers dead #{parsed_results[:dead_servers]}"
   exit 1
 else
   puts "Okay amount of live servers"
