@@ -17,7 +17,7 @@ else
 	exit 3
 fi
 
-if [ $lines >= 1 ]; then 
+if [ $lines >= 2 ]; then 
 	echo "Flume node is running!"
 	exit 0
 else 
