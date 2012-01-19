@@ -77,9 +77,9 @@ if (parsed_results[:datanode_ratio] > options[:critical].to_i)
   puts "Critical number of servers dead: #{parsed_results[:datanode_dead]}"
   exit 2
 elsif (parsed_results[:datanode_ratio] > options[:warning].to_i)
-  puts "Warning number of servers dead: #{parsed_results[:datanod_dead]}"
+  puts "Warning number of servers dead: #{parsed_results[:datanode_dead]}"
   exit 1
 else
-  puts "Okay amount of live servers"
+  puts "Okay amount of live servers: #{parsed_results[:datanode_avail]}"
   exit 0
 end
